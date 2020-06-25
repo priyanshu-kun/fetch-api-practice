@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      
+    </style>
+    <title>Fetch API</title>
+</head>
+<body>
+    <ul class="datalist"></ul>
+    <button class="click" type="button">Click Me</button>
+    <button class="fetch" type="button">Fetch Data</button>
+
+
+    <script>
+       let btn =  document.querySelector(".click");
+       let dataList = document.querySelector(".datalist");
+
+       btn.addEventListener("click",() => {
+        PostData();
+       })
+
+        // function getData() {
+        //     let url = 'https://api.github.com/users';
+        //     fetch(url).then((response) => {
+        //         return response.json();
+        //     }).then((data) => {       
+        //         data.forEach(element => {
+        //             let span = document.createElement("li")
+        //             span.innerHTML = element.login;
+        //             dataList.appendChild(span)
+        //         });
+        //     })
+        // }
+        function PostData() {
+            let url = 'http://dummy.restapiexample.com/api/v1/create';
+            let data = `{"name":"ultra","salary":"123","age":"23"}`;
+            let parameter = {
+                method: "post",
+                headers: {
+                    'contentType': 'application/json'
+                },
+                body: data
+            }
+            fetch(url,parameter).then((response) => {
+                return response.json();
+            }).then((data) => {       
+                console.log(data)
+            })
+        }
+
+        // document.addEventListener("DOMContentLoaded",)
+
+    </script>
+</body>
+</html>
